@@ -5,100 +5,87 @@ Merlin's universal skills hub for cross-agent use.
 **One install, every agent.** Works with Claude Code, Codex, Cursor, Gemini, Antigravity, Hermes, OpenCode, GitHub Copilot — anything in the [npx skills](https://skills.sh/) ecosystem.
 
 ```bash
+# Full stack (hub + curated community packs):
+curl -fsSL https://raw.githubusercontent.com/macaiagent1-cyber/agent-skills/main/install.sh | bash
+
+# Just this hub:
 npx skills add macaiagent1-cyber/agent-skills
 ```
 
 ---
 
-## Bundled skills (16 — installed by default)
+## 76 skills bundled
 
-### Media generation
-- **higgsfield-generate** — Higgsfield AI images/video (Sora 2, Veo 3.1, Kling 3.0, Nano Banana, Flux)
-- **higgsfield-marketplace-cards** — Marketplace product image cards (main, secondary, A+ modules)
-- **higgsfield-product-photoshoot** — Brand-quality product photography
-- **higgsfield-soul-id** — Train a personalized Soul Character for identity-faithful generation
-
-### Web / browser control
+### Original skills (Merlin)
 - **kimi-webbridge** — Drive the user's real browser via local daemon
-- **turnstile-spin** — Cloudflare Turnstile handling
 
-### Cloudflare / infra
-- **cloudflare** — General Cloudflare workflows
-- **cloudflare-email-service** — Email routing via Workers
-- **durable-objects** — Durable Objects patterns
-- **sandbox-sdk** — Cloudflare Sandbox SDK
-- **workers-best-practices** — Workers best practices
-- **wrangler** — Wrangler CLI workflows
-- **web-perf** — Web performance optimization
+### Higgsfield AI (vendored from [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills))
+- higgsfield-generate, higgsfield-marketplace-cards, higgsfield-product-photoshoot, higgsfield-soul-id
 
-### Agent / tooling
-- **agents-sdk** — Agent SDK patterns
-- **find-skills** — Discover and install skills from the ecosystem
-- **google-antigravity-ops** — Google Antigravity operations
+### Cloudflare stack
+- cloudflare, cloudflare-email-service, durable-objects, sandbox-sdk
+- workers-best-practices, wrangler, web-perf, turnstile-spin
+
+### Agent infrastructure
+- agents-sdk, find-skills, google-antigravity-ops
+- agent-orchestration, gemini-dispatcher, codex-dispatcher
+- superpowers-orchestrator, dispatching-parallel-agents
+- subagent-driven-development, executing-plans, writing-plans
+
+### Frontend / UI design references
+- ui-ux-pro-max, impeccable-style, taste-skill
+- emil-kowalski, framer-motion, dev21-components
+- styleui, ali-imam-ui, watermelon-ui, skiper-ui
+- huashu-design, cult-ui
+
+### Engineering workflow
+- planning, brainstorming, builder, design
+- dev-quality, dev-workflow, code-review
+- receiving-code-review, requesting-code-review
+- test-driven-development, systematic-debugging
+- verification-before-completion, finishing-a-development-branch
+- using-git-worktrees, ecc-harness-methodology
+
+### Document creation
+- docx, pptx, pdf, xlsx
+- canvas-design, brand-guidelines, theme-factory
+- writing, internal-comms, doc-coauthoring
+- algorithmic-art, slack-gif-creator
+
+### Specialized
+- trading-agents, autoresearch, manus-autonomy
+- playwright, scrapling
+- mcp-builder, skill-creator, web-artifacts-builder
+- consolidate-memory, schedule, setup-cowork
+- using-superpowers, writing-skills
 
 ---
 
 ## Recommended add-ons (install separately)
 
-Curated from the open skills ecosystem. These are the ones I trust enough to install on top.
-
-### Engineering skills
 ```bash
-npx skills add mattpocock/skills            # Skills for Real Engineers
-npx skills add addyosmani/agent-skills      # Production-grade engineering skills
-npx skills add multica-ai/andrej-karpathy-skills  # Karpathy's CLAUDE.md improvements
-npx skills add obra/superpowers             # Agentic skills framework
+npx skills add mattpocock/skills            # Engineering skills
+npx skills add addyosmani/agent-skills      # Production engineering
+npx skills add multica-ai/andrej-karpathy-skills  # Karpathy patterns
+npx skills add K-Dense-AI/scientific-agent-skills  # 140+ science
+npx skills add anthropics/claude-plugins-official  # Big official set
 ```
 
-### Domain-specific skills
-```bash
-npx skills add K-Dense-AI/scientific-agent-skills    # 140+ scientific skills
-npx skills add Imbad0202/academic-research-skills    # research → write → review → revise
-npx skills add yetone/native-feel-skill              # Native-feeling desktop UI
-npx skills add ComposioHQ/awesome-codex-skills       # Curated Codex skills
-```
-
-### Official Anthropic
-```bash
-npx skills add anthropics/claude-plugins-official    # Official Claude Code Plugins
-npx skills add anthropics/claude-for-legal           # Legal workflows
-npx skills add anthropics/financial-services         # Financial services
-```
+Or run `install.sh` to get everything in one shot.
 
 ---
 
-## Recommended frameworks & memory (not skills — install via their docs)
+## Frameworks & memory layers (linked, not vendored)
 
-These are runtimes/frameworks that pair well with the skills above.
-
-### Memory layers
-- [mem0ai/mem0](https://github.com/mem0ai/mem0) — Universal memory layer for AI agents
-- [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) — Persistent context across sessions for every agent
-- [MemTensor/MemOS](https://github.com/MemTensor/MemOS) — Self-evolving memory OS
-- [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) — Persistent memory for AI coding agents
-- [memvid/memvid](https://github.com/memvid/memvid) — Serverless single-file memory layer
-
-### Multi-agent frameworks
-- [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) + [crewAI-tools](https://github.com/crewAIInc/crewAI-tools)
-- [swarmclawai/swarmclaw](https://github.com/swarmclawai/swarmclaw) — Multi-agent runtime, MCP tools, 23+ LLM providers
-- [bytedance/deer-flow](https://github.com/bytedance/deer-flow) — Long-horizon SuperAgent harness
-- [Hmbown/CodeWhale](https://github.com/Hmbown/CodeWhale) — Open-source agent harness
-
-### Local / privacy
+- [mem0ai/mem0](https://github.com/mem0ai/mem0) — Universal memory layer
+- [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) — Persistent context
+- [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) — Multi-agent framework
+- [swarmclawai/swarmclaw](https://github.com/swarmclawai/swarmclaw) — Multi-agent runtime
 - [exo-explore/exo](https://github.com/exo-explore/exo) — Run frontier AI locally
-- [tinyhumansai/openhuman](https://github.com/tinyhumansai/openhuman) — Personal AI super intelligence
-
-### Specialized
-- [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) — Multi-agent financial trading framework
-- [HKUDS/AI-Trader](https://github.com/HKUDS/AI-Trader) — 100% automated agent-native trading
-- [CloakHQ/CloakBrowser](https://github.com/CloakHQ/CloakBrowser) — Stealth Chromium for bot-detection bypass
-- [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) — Multimodal AI agent stack
-- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) — Code knowledge graph for all agents
-- [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) — HTML → video, built for agents
-
-### Audit / quality
-- [johnpaulhayes/ocaudit](https://github.com/johnpaulhayes/ocaudit) — Deterministic audit for agent workspaces
-- [millionco/react-doctor](https://github.com/millionco/react-doctor) — Catches bad React from agents
+- [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) — Trading framework
+- [CloakHQ/CloakBrowser](https://github.com/CloakHQ/CloakBrowser) — Stealth browser
+- [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) — Multimodal agent stack
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) — Code knowledge graph
 
 ---
 
@@ -108,24 +95,32 @@ These are runtimes/frameworks that pair well with the skills above.
 # Same command, every agent, every machine:
 npx skills add macaiagent1-cyber/agent-skills
 
-# Then optionally add the recommended ones above.
-```
+# On a new machine, full stack in one command:
+curl -fsSL https://raw.githubusercontent.com/macaiagent1-cyber/agent-skills/main/install.sh | bash
 
-Update everywhere with one command:
-```bash
+# Update everywhere:
 npx skills update
 ```
+
+---
+
+## Attribution
+
+| Source | Skills | Original Repo |
+|---|---|---|
+| Higgsfield AI | 4 skills | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills) |
+| Anthropic Skills | many | [anthropics/skills](https://github.com/anthropics/skills) |
+| Superpowers | several | [obra/superpowers](https://github.com/obra/superpowers) |
+| Addy Osmani | several | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) |
+| Cloudflare set | 7 skills | Cloudflare docs / Cowork bundled |
+| kimi-webbridge | 1 skill | Merlin (original) |
+
+Vendored skills retain their original licenses (see individual `SKILL.md` headers).
 
 ---
 
 ## Owner
 
 - Merlin (macaiagent1@gmail.com)
-- Primary GitHub: [macaiagent1-cyber](https://github.com/macaiagent1-cyber)
-- Stars/research account: [kevinthegamer](https://github.com/kevinthegamer)
-
-## License
-
-- Original skills (`kimi-webbridge` and Cloudflare-set): MIT
-- Higgsfield-* skills: vendored from [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills) — consult upstream
-- Recommendations above remain under their original licenses
+- Primary: [macaiagent1-cyber](https://github.com/macaiagent1-cyber)
+- Stars/research: [kevinthegamer](https://github.com/kevinthegamer)
