@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemini CLI Proper"
+  short_description: "Use Gemini CLI safely as a subscription worker"
+  default_prompt: "Use $gemini-cli-proper to delegate bounded research, code review, or multimodal analysis to Gemini CLI without API keys."

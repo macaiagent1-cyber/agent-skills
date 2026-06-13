@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mac Mini Screen Sharing"
+  short_description: "Start and verify autonomous Screen Sharing with the AI Mac mini."
+  default_prompt: "Start Screen Sharing with the Mac mini and verify the connection."
