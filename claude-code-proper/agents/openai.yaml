@@ -1,4 +1,0 @@
-interface:
-  display_name: "Claude Code Proper"
-  short_description: "Use Claude Code safely and effectively"
-  default_prompt: "Use $claude-code-proper to delegate a bounded coding audit or implementation task to Claude Code."

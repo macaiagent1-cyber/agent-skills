@@ -1,6 +1,6 @@
 # Skills Recommendations
 
-Skills are packaged expertise with workflows, reference materials, and best practices. Create them in `.claude/skills/<name>/SKILL.md`. Skills can be invoked by Claude automatically when relevant, or by users directly with `/skill-name`.
+Skills are packaged expertise with workflows, reference materials, and best practices. Create them in `.agent/skills/<name>/SKILL.md` (or `.claude/skills/<name>/SKILL.md`). Skills can be invoked by the Agent automatically when relevant, or by users directly with `/skill-name`.
 
 Some pre-built skills are available through official plugins (install via `/plugin install`).
 
@@ -64,12 +64,12 @@ Some pre-built skills are available through official plugins (install via `/plug
 
 ## Custom Project Skills
 
-Create project-specific skills in `.claude/skills/<name>/SKILL.md`.
+Create project-specific skills in `.agent/skills/<name>/SKILL.md` (or `.claude/skills/<name>/SKILL.md`).
 
 ### Skill Structure
 
 ```
-.claude/skills/
+.agent/skills/
 └── my-skill/
     ├── SKILL.md           # Main instructions (required)
     ├── template.yaml      # Template to apply
@@ -85,7 +85,7 @@ Create project-specific skills in `.claude/skills/<name>/SKILL.md`.
 name: skill-name
 description: What this skill does and when to use it
 disable-model-invocation: true  # Only user can invoke (for side effects)
-user-invocable: false           # Only Claude can invoke (for background knowledge)
+user-invocable: false           # Only Agent can invoke (for background knowledge)
 allowed-tools: Read, Grep, Glob # Restrict tool access
 context: fork                   # Run in isolated subagent
 agent: Explore                  # Which agent type when forked
@@ -94,7 +94,7 @@ agent: Explore                  # Which agent type when forked
 
 ### Invocation Control
 
-| Setting | User | Claude | Use for |
+| Setting | User | Agent | Use for |
 |---------|------|--------|---------|
 | (default) | ✓ | ✓ | General-purpose skills |
 | `disable-model-invocation: true` | ✓ | ✗ | Side effects (deploy, send) |
@@ -109,7 +109,7 @@ agent: Explore                  # Which agent type when forked
 Apply a YAML template to generate consistent API docs:
 
 ```
-.claude/skills/api-doc/
+.agent/skills/api-doc/
 ├── SKILL.md
 └── openapi-template.yaml
 ```
@@ -158,7 +158,7 @@ paths:
 Generate and validate migrations using a bundled script:
 
 ```
-.claude/skills/create-migration/
+.agent/skills/create-migration/
 ├── SKILL.md
 └── scripts/
     └── validate-migration.sh
@@ -177,7 +177,7 @@ Create a migration for: $ARGUMENTS
 
 1. Generate migration file in `migrations/` with timestamp prefix
 2. Include up and down functions
-3. Run validation: `bash ~/.claude/skills/create-migration/scripts/validate-migration.sh`
+3. Run validation: `bash ~/.agent/skills/create-migration/scripts/validate-migration.sh`
 4. Report any issues found
 ```
 
@@ -195,7 +195,7 @@ npx prisma validate 2>&1 || echo "Validation failed"
 Generate tests following project patterns:
 
 ```
-.claude/skills/gen-test/
+.agent/skills/gen-test/
 ├── SKILL.md
 └── examples/
     ├── unit-test.ts
@@ -229,7 +229,7 @@ Reference these examples for the expected patterns:
 Scaffold new components from a template:
 
 ```
-.claude/skills/new-component/
+.agent/skills/new-component/
 ├── SKILL.md
 └── templates/
     ├── component.tsx.template
@@ -263,7 +263,7 @@ Replace {{component-name}} with the kebab-case name.
 Review PRs against a project-specific checklist:
 
 ```
-.claude/skills/pr-check/
+.agent/skills/pr-check/
 ├── SKILL.md
 └── checklist.md
 ```
@@ -324,9 +324,9 @@ Generate release notes:
 
 ---
 
-### Project Conventions (Claude-only)
+### Project Conventions (Agent-only)
 
-Background knowledge Claude applies automatically:
+Background knowledge the Agent applies automatically:
 
 **SKILL.md:**
 ```yaml
@@ -360,7 +360,7 @@ user-invocable: false
 Onboard new developers with setup script:
 
 ```
-.claude/skills/setup-dev/
+.agent/skills/setup-dev/
 ├── SKILL.md
 └── scripts/
     └── check-prerequisites.sh
@@ -405,4 +405,4 @@ Use `!`command`` to inject live data before the skill runs:
 - Status: !`git status --short`
 ```
 
-The command output replaces the placeholder before Claude sees the skill content.
+The command output replaces the placeholder before the Agent sees the skill content.

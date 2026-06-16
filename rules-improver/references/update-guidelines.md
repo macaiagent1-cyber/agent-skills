@@ -1,8 +1,8 @@
-# CLAUDE.md Update Guidelines
+# AGENTS.md / Rules File Update Guidelines
 
 ## Core Principle
 
-Only add information that will genuinely help future Claude sessions. The context window is precious - every line must earn its place.
+Only add information that will genuinely help future sessions. The context window is precious - every line must earn its place.
 
 ## What TO Add
 
@@ -113,7 +113,7 @@ For each suggested change:
 ### 1. Identify the File
 
 ```
-File: ./CLAUDE.md
+File: ./AGENTS.md
 Section: Commands (new section after ## Architecture)
 ```
 
@@ -123,13 +123,13 @@ Section: Commands (new section after ## Architecture)
  ## Architecture
  ...
 
-+## Commands
-+
-+| Command | Purpose |
-+|---------|---------|
-+| `npm run dev` | Dev server with HMR |
-+| `npm run build` | Production build |
-+| `npm test` | Run test suite |
+ +## Commands
+ +
+ +| Command | Purpose |
+ +|---------|---------|
+ +| `npm run dev` | Dev server with HMR |
+ +| `npm run build` | Production build |
+ +| `npm test` | Run test suite |
 ```
 
 ### 3. Explain Why
@@ -146,5 +146,5 @@ Before finalizing an update, verify:
 - [ ] No generic advice or obvious info
 - [ ] Commands are tested and work
 - [ ] File paths are accurate
-- [ ] Would a new Claude session find this helpful?
+- [ ] Would a new session find this helpful?
 - [ ] Is this the most concise way to express the info?

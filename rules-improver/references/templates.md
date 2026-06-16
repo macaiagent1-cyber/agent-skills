@@ -1,4 +1,4 @@
-# CLAUDE.md Templates
+# AGENTS.md / Rules File Templates
 
 ## Key Principles
 
@@ -31,7 +31,7 @@ Document the essential commands for working with the project.
 
 ### Architecture
 
-Describe the project structure so Claude understands where things live.
+Describe the project structure so the Agent understands where things live.
 
 ```markdown
 ## Architecture
@@ -46,7 +46,7 @@ Describe the project structure so Claude understands where things live.
 
 ### Key Files
 
-List important files that Claude should know about.
+List important files that the Agent should know about.
 
 ```markdown
 ## Key Files
@@ -245,9 +245,9 @@ For packages within a monorepo or distinct modules.
 
 ## Update Principles
 
-When updating any CLAUDE.md:
+When updating any AGENTS.md / rules file:
 
 1. **Be specific**: Use actual file paths, real commands from this project
 2. **Be current**: Verify info against the actual codebase
 3. **Be brief**: One line per concept when possible
-4. **Be useful**: Would this help a new Claude session understand the project?
+4. **Be useful**: Would this help a new session/Agent understand the project?

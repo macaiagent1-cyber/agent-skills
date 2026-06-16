@@ -12,7 +12,7 @@ Plugins are installable collections of skills, commands, agents, and hooks. Inst
 
 | Plugin | Best For | Key Features |
 |--------|----------|--------------|
-| **plugin-dev** | Building Claude Code plugins | Skills for creating skills, hooks, commands, agents |
+| **plugin-dev** | Building CLI plugins | Skills for creating skills, hooks, commands, agents |
 | **pr-review-toolkit** | PR review workflows | Specialized review agents (code, tests, types) |
 | **code-review** | Automated code review | Multi-agent review with confidence scoring |
 | **code-simplifier** | Code refactoring | Simplify code while preserving functionality |
@@ -92,7 +92,7 @@ Plugins are installable collections of skills, commands, agents, and hooks. Inst
 ## When to Recommend Plugins
 
 **Recommend plugin installation when:**
-- User wants to install Claude Code automations from Anthropic's official repository or another shared marketplace
+- User wants to install Agent / CLI automations from the official repository or another shared marketplace
 - User needs multiple related capabilities
 - Team wants standardized workflows
-- First-time Claude Code setup
+- First-time CLI / Agent Harness setup

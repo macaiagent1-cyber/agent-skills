@@ -2,7 +2,7 @@
 
 This directory contains **composable skills** that enhance all agents in this repository. Skills are systematic workflows and methodologies that guide agents through complex processes from brainstorming to completion.
 
-> **Source**: Skills adapted from [obra/superpowers](https://github.com/obra/superpowers) - A comprehensive skills library for Claude Code agents.
+> **Source**: Skills adapted from [obra/superpowers](https://github.com/obra/superpowers) - A comprehensive skills library for Agent Harness / CLI agents.
 
 ## What Are Skills?
 
@@ -232,7 +232,7 @@ Skills often work together in sequences:
 | **What** | HOW to do work | WHAT agent knows |
 | **Scope** | Process/methodology | Knowledge/expertise |
 | **Usage** | Activated by context | Always available |
-| **Location** | `.claude/skills/` | Agent definition `## Capabilities` |
+| **Location** | `.agent/skills/` (or `.claude/skills/`) | Agent definition `## Capabilities` |
 | **Sharing** | Used by all agents | Specific to agent |
 
 ### Skills + Agents = Powerful Workflows
@@ -305,7 +305,7 @@ Complex tasks may use multiple skills:
 
 To add a new skill to this system:
 
-1. Create directory: `.claude/skills/your-skill-name/`
+1. Create directory: `.agent/skills/your-skill-name/` (or `.claude/skills/your-skill-name/`)
 2. Create `SKILL.md` with frontmatter:
    ```yaml
    ---
@@ -320,16 +320,16 @@ To add a new skill to this system:
    - Examples
    - Anti-patterns
    - Verification checklist
-4. Add to `.claude-plugin/plugin.json` skills section
+4. Add to the plugin configuration (`.claude-plugin/plugin.json`) skills section
 5. Update this README
 6. Reference in relevant agent definitions
 
 ## Resources
 
 - **Original Skills Repository**: https://github.com/obra/superpowers
-- **Skills Directory**: `.claude/skills/`
+- **Skills Directory**: `.agent/skills/` (or `.claude/skills/`)
 - **Plugin Configuration**: `.claude-plugin/plugin.json`
-- **Agent Definitions**: `.claude/agents/{category}/{agent-name}.md`
+- **Agent Definitions**: `.agent/agents/{category}/{agent-name}.md` (or `.claude/agents/{category}/{agent-name}.md`)
 
 ## Philosophy
 

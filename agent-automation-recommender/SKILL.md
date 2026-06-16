@@ -1,14 +1,14 @@
 ---
-name: claude-automation-recommender
-description: Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Claude Code setup, mentions improving Claude Code workflows, asks how to first set up Claude Code for a project, or wants to know what Claude Code features they should use.
+name: agent-automation-recommender
+description: Analyze a codebase and recommend CLI / Agent Harness automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Agent setup, mentions improving agentic workflows, asks how to first set up the CLI for a project, or wants to know what Agent/CLI features they should use.
 tools: Read, Glob, Grep, Bash
 ---
 
-# Claude Automation Recommender
+# Agent Automation Recommender
 
-Analyze codebase patterns to recommend tailored Claude Code automations across all extensibility options.
+Analyze codebase patterns to recommend tailored Agent Harness / CLI automations across all extensibility options.
 
-**This skill is read-only.** It analyzes the codebase and outputs recommendations. It does NOT create or modify any files. Users implement the recommendations themselves or ask Claude separately to help build them.
+**This skill is read-only.** It analyzes the codebase and outputs recommendations. It does NOT create or modify any files. Users implement the recommendations themselves or ask the Agent separately to help build them.
 
 ## Output Guidelines
 
@@ -23,7 +23,7 @@ Analyze codebase patterns to recommend tailored Claude Code automations across a
 |------|----------|
 | **Hooks** | Automatic actions on tool events (format on save, lint, block edits) |
 | **Subagents** | Specialized reviewers/analyzers that run in parallel |
-| **Skills** | Packaged expertise, workflows, and repeatable tasks (invoked by Claude or user via `/skill-name`) |
+| **Skills** | Packaged expertise, workflows, and repeatable tasks (invoked by the Agent or user via `/skill-name`) |
 | **Plugins** | Collections of skills that can be installed |
 | **MCP Servers** | External tool integrations (databases, APIs, browsers, docs) |
 
@@ -41,8 +41,8 @@ cat package.json 2>/dev/null | head -50
 # Check dependencies for MCP server recommendations
 cat package.json 2>/dev/null | grep -E '"(react|vue|angular|next|express|fastapi|django|prisma|supabase|convex|stripe)"'
 
-# Check for existing Claude Code config
-ls -la .claude/ CLAUDE.md 2>/dev/null
+# Check for existing Agent / CLI config
+ls -la .agent/ .claude/ AGENTS.md CLAUDE.md 2>/dev/null
 
 # Analyze project structure
 ls -la src/ app/ lib/ tests/ components/ pages/ api/ 2>/dev/null
@@ -89,7 +89,7 @@ See [references/mcp-servers.md](references/mcp-servers.md) for detailed patterns
 
 See [references/skills-reference.md](references/skills-reference.md) for details.
 
-Create skills in `.claude/skills/<name>/SKILL.md`. Some are also available via plugins:
+Create skills in `.agent/skills/<name>/SKILL.md` (or `.claude/skills/<name>/SKILL.md`). Some are also available via plugins:
 
 | Codebase Signal | Skill | Plugin |
 |-----------------|-------|--------|
@@ -109,7 +109,7 @@ Create skills in `.claude/skills/<name>/SKILL.md`. Some are also available via p
 | Component library | **new-component** (with templates) | User-only |
 | PR workflow | **pr-check** (with checklist) | User-only |
 | Releases | **release-notes** (with git context) | User-only |
-| Code style | **project-conventions** | Claude-only |
+| Code style | **project-conventions** | Agent-only |
 | Onboarding | **setup-dev** (with prereq script) | User-only |
 
 #### C. Hooks Recommendations
@@ -155,7 +155,7 @@ See [references/plugins-reference.md](references/plugins-reference.md) for avail
 Format recommendations clearly. **Only include 1-2 recommendations per category** - the most valuable ones for this specific codebase. Skip categories that aren't relevant.
 
 ```markdown
-## Claude Code Automation Recommendations
+## Agent/CLI Automation Recommendations
 
 I've analyzed your codebase and identified the top automations for each category. Here are my top 1-2 recommendations per type:
 
@@ -178,8 +178,8 @@ I've analyzed your codebase and identified the top automations for each category
 
 #### [skill name]
 **Why**: [specific reason]
-**Create**: `.claude/skills/[name]/SKILL.md`
-**Invocation**: User-only / Both / Claude-only
+**Create**: `.agent/skills/[name]/SKILL.md`
+**Invocation**: User-only / Both / Agent-only
 **Also available in**: [plugin-name] plugin (if applicable)
 ```yaml
 ---
@@ -195,7 +195,7 @@ disable-model-invocation: true  # for user-only
 
 #### [hook name]
 **Why**: [specific reason based on detected config]
-**Where**: `.claude/settings.json`
+**Where**: `.agent/settings.json` (or `.claude/settings.json`)
 
 ---
 
@@ -203,7 +203,7 @@ disable-model-invocation: true  # for user-only
 
 #### [agent name]
 **Why**: [specific reason based on codebase patterns]
-**Where**: `.claude/agents/[name].md`
+**Where**: `.agent/agents/[name].md` (or `.claude/agents/[name].md`)
 
 ---
 
@@ -232,7 +232,7 @@ disable-model-invocation: true  # for user-only
 
 **Invocation control:**
 - `disable-model-invocation: true` — User-only (for side effects: deploy, commit, send)
-- `user-invocable: false` — Claude-only (for background knowledge)
+- `user-invocable: false` — Agent-only (for background knowledge)
 - Default (omit both) — Both can invoke
 
 ### When to Recommend Hooks
@@ -258,7 +258,7 @@ disable-model-invocation: true  # for user-only
 
 **Team sharing**: Check `.mcp.json` into repo so entire team gets same MCP servers
 
-**Debugging**: Use `--mcp-debug` flag to identify configuration issues
+**Debugging**: Use `--mcp-debug` flag (or tool specific debug command) to identify configuration issues
 
 **Prerequisites to recommend:**
 - GitHub CLI (`gh`) - enables native GitHub operations
@@ -266,7 +266,7 @@ disable-model-invocation: true  # for user-only
 
 ### Headless Mode (for CI/Automation)
 
-Recommend headless Claude for automated pipelines:
+Recommend headless mode for automated pipelines:
 
 ```bash
 # Pre-commit hook example
@@ -278,7 +278,7 @@ claude -p "<prompt>" --output-format stream-json | your_command
 
 ### Permissions for Hooks
 
-Configure allowed tools in `.claude/settings.json`:
+Configure allowed tools in `.agent/settings.json` (or `.claude/settings.json`):
 
 ```json
 {

@@ -1,6 +1,6 @@
 # MCP Server Recommendations
 
-MCP (Model Context Protocol) servers extend Claude's capabilities by connecting to external tools and services.
+MCP (Model Context Protocol) servers extend the Agent's capabilities by connecting to external tools and services.
 
 **Note**: These are common MCP servers. Use web search to find MCP servers specific to the codebase's services and integrations.
 
@@ -8,17 +8,17 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 
 **Connection methods:**
 1. **Project config** (`.mcp.json`) - Available only in that directory
-2. **Global config** (`~/.claude.json`) - Available across all projects
+2. **Global config** (`~/.agent.json` or `~/.claude.json`) - Available across all projects
 3. **Checked-in `.mcp.json`** - Available to entire team (recommended!)
 
 **Tip**: Check `.mcp.json` into git so your whole team gets the same MCP servers.
 
-**Debugging**: Use `claude --mcp-debug` to identify configuration issues.
+**Debugging**: Use the CLI debug command (e.g. `claude --mcp-debug`) to identify configuration issues.
 
 ## Documentation & Knowledge
 
 ### context7
-**Best for**: Projects using popular libraries/SDKs where you want Claude to code with up-to-date documentation
+**Best for**: Projects using popular libraries/SDKs where you want the Agent to code with up-to-date documentation
 
 | Recommend When | Examples |
 |----------------|----------|
@@ -29,7 +29,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | Using AWS SDK, Google Cloud | Cloud SDKs |
 | Using LangChain, OpenAI SDK | AI/ML libraries |
 
-**Value**: Claude fetches live documentation instead of relying on training data, reducing hallucinated APIs and outdated patterns.
+**Value**: The Agent fetches live documentation instead of relying on training data, reducing hallucinated APIs and outdated patterns.
 
 ---
 
@@ -46,7 +46,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | Debugging UI issues | See what user sees |
 | Form testing | Multi-step workflows |
 
-**Value**: Claude can interact with your running app, take screenshots, fill forms, and verify UI behavior.
+**Value**: The Agent can interact with your running app, take screenshots, fill forms, and verify UI behavior.
 
 ### Puppeteer MCP
 **Best for**: Headless browser automation, web scraping
@@ -70,7 +70,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | Auth + database needs | User management apps |
 | Real-time features | Live data sync |
 
-**Value**: Claude can query tables, manage auth, and interact with Supabase storage directly.
+**Value**: The Agent can query tables, manage auth, and interact with Supabase storage directly.
 
 ### Convex MCP
 **Best for**: Projects using Convex as the backend (reactive database + server functions + auth + storage + scheduling, all on one platform)
@@ -82,7 +82,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | Mobile + Convex | `convex/react-native` in deps |
 | AI / chat / agent features on Convex | `@convex-dev/agent` in deps |
 
-**Value**: Claude can introspect the live deployment (tables, function specs, env vars, logs) and execute queries/mutations against it via tools like `tables`, `function-spec`, `data`, `run-once-query`, `logs`, `env list/set/get`. Run via `npx convex mcp start`.
+**Value**: The Agent can introspect the live deployment (tables, function specs, env vars, logs) and execute queries/mutations against it via tools like `tables`, `function-spec`, `data`, `run-once-query`, `logs`, `env list/set/get`. Run via `npx convex mcp start`.
 
 ### PostgreSQL MCP
 **Best for**: Direct PostgreSQL database access
@@ -115,7 +115,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | GitHub Actions | CI/CD pipeline access |
 | Release management | Tag and release automation |
 
-**Value**: Claude can create issues, review PRs, check workflow runs, and manage releases.
+**Value**: The Agent can create issues, review PRs, check workflow runs, and manage releases.
 
 ### GitLab MCP
 **Best for**: GitLab-hosted repositories
@@ -158,7 +158,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 
 ---
 
-## Monitoring & Observtic
+## Monitoring & Observability
 
 ### Sentry MCP
 **Best for**: Error tracking and debugging
@@ -170,7 +170,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | Error patterns | Group similar issues |
 | Release tracking | Correlate deploys with errors |
 
-**Value**: Claude can investigate Sentry issues, find root causes, and suggest fixes.
+**Value**: The Agent can investigate Sentry issues, find root causes, and suggest fixes.
 
 ### Datadog MCP
 **Best for**: APM, logs, and metrics
@@ -219,7 +219,7 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | User preferences | Store settings |
 | Learning patterns | Build knowledge |
 
-**Value**: Claude remembers project context, decisions, and patterns across conversations.
+**Value**: The Agent remembers project context, decisions, and patterns across conversations.
 
 ---
 
@@ -273,4 +273,4 @@ MCP (Model Context Protocol) servers extend Claude's capabilities by connecting 
 | `@sentry/*` | Sentry MCP |
 | `docker-compose.yml` | Docker MCP |
 | Slack webhook URLs | Slack MCP |
-| `@anthropic-ai/sdk` | context7 for Anthropic docs |
+| `@anthropic-ai/sdk` | context7 for Anthropic/LLM docs |

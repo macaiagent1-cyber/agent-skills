@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Harness Proper"
+  short_description: "Use the Agent Harness safely and effectively"
+  default_prompt: "Use $agent-harness-proper to delegate a bounded coding audit or implementation task to the CLI."
